@@ -1,0 +1,60 @@
+PARIDADE
+
+PEGAR OS BITS QUE VAI TRANSMITIR E ADICIONAR REDUNCDâNCIA A ESSA INFORMAÇÃO, MAIS BITS DO QUE DEVERIA, DE PROPÓSITO, PARA PERMITIR QUE QUEM ESTÁ OUVINDO VAI ENTENDER
+
+- Consiste em adicionar um bit a mais em um pacote de dados
+
+Ex: 101011"0" ---> 0 é o bit de paridade (Torna o número de uns do pacote de dados par) -> Chamado paridade par
+    101011"1" ---> 1 é o bit de paridade (Torna o número de uns do pacote de dados ímpar) -> Chamado paridade ímpar
+
+Toda vez que o número de bits trocados for par, o método de verificação vai falhar (falso positivo).
+
+Pode ser corrigido pelo método das matrizes:
+
+1 1 0 1 1 | 0     A última coluna corresponde ao bit de paridade de cada linha.
+0 0 1 0 1 | 0     A última linha corresponde a um novo pacote enviado para tornar o método mais eficiente.
+1 1 1 0 0 | 1	  Dessa maneira, se um bit na última coluna vem errado e também na última linha é possível determinar onde está o erro e em qual pacote é.
+0 1 1 0 1 | 1
+----------|
+0 1 1 1 1 | 0
+
+---------------------------------------------------------CÓDIGOS AULA-----------------------------------------------------------
+
+vhdl 1:
+
+entity par4 is
+port(a,b,c,d: in bit;
+		s: out bit );
+end par4;
+
+architecture par of par4 is
+begin
+s<= a xor b xor c xor d;
+end par;
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+testbench:
+
+entity testbench is
+end testbench;
+
+architecture test of testbench is
+	component par4 is
+			port(a,b,c,d: in bit;
+			s: out bit);
+	end component;
+
+signal a,b,c,d: bit;
+signal s: bit;
+
+begin 
+	DUT: par4 port map(a,b,c,d,s);
+	
+	a<='1' after 10 ns,'1' after 20 ns, '1' after 30 ns, '0' after 40 ns, '0' after 50 ns;
+		b<='0' after 10 ns,'1' after 20 ns, '1' after 30 ns, '0' after 40 ns, '0' after 50 ns;
+			c<='1' after 10 ns,'1' after 20 ns, '0' after 30 ns, '1' after 40 ns, '0' after 50 ns;
+				d<='1' after 10 ns,'0' after 20 ns, '0' after 30 ns, '0' after 40 ns, '0' after 50 ns;
+				
+end test;
+
