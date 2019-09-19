@@ -1,0 +1,54 @@
+Nesta aula foi criado um gerador de bit de paridade para checar a validade de um pacote recebido.
+Foi utilizado o bloco generate para tornar o checador genérico.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+entity parity_check is
+generic(tam: integer:=9);
+port(received: in bit_vector(tam-1 downto 0);
+		error: out bit
+);
+end parity_check;
+
+architecture check of parity_check is
+
+component parity_gen is
+generic (size: integer := tam);
+port (input: in bit_vector(tam-1 downto 0);
+		output: out bit);
+end component;
+
+signal temp: bit;
+
+begin
+
+x: parity_gen port map(received,temp);
+error <= not temp;
+
+end check;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+entity testbench is
+end testbench;
+
+architecture test of testbench is
+component parity_check is
+	generic(tam: integer :=9);
+	port(received: in bit_vector(tam-1 downto 0);
+	error: out bit);
+end component;
+
+signal put: bit_vector(8 downto 0);
+signal output: bit;
+
+begin
+
+dut: parity_check port map(put, output);
+
+put<="111111110" after 10 ns;
+put<="110101011" after 20 ns;
+put<="101011010" after 30 ns;
+put<="101011011" after 40 ns;
+
+end test;
