@@ -1,0 +1,43 @@
+Nesta aula foi proejtado um somador de um bit utilizando portas XOR, AND e OR.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+entity somador is
+	port (a, b, cin: in bit;
+	s, cout: out bit);
+end somador;
+
+architecture somador of somador is
+	signal z: bit;
+begin
+
+cout<=(a and b) or (z and cin);
+z<= a xor b;
+s<= z xor cin;
+
+end somador;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+entity testbench is
+end testbench;
+
+architecture test of testbench is
+	component somador is
+	port(a,b,cin: in bit;
+	s, cout: out bit);
+	end component;
+	signal inputs: bit_vector(2 downto 0) := "000";
+	signal outputs: bit_vector(1 downto 0);
+begin 
+DUT: somador port map(inputs(0),inputs(1),inputs(2), outputs(0), outputs(1));
+inputs<= "001" after 10ns,
+			"010" after 20ns,
+			"011" after 30ns,
+			"100" after 40ns,
+			"101" after 50ns,
+			"110" after 60ns,
+			"111" after 70ns;
+end test;
+
+----------------------------------------------------------------------------------------------------------------------------------
