@@ -1,0 +1,73 @@
+Nesta aula foi projetado um somador generico utilizando o bloco generate. Foi criado um vetor carry para realização das somas.
+Para simulação utilizando o testbech preparado abaixo, é necessário que o entity "somador" da aula_04 esteja no mesmo arquivo.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+entity somanb is
+	generic(len:integer := 8);
+    port(a,b: in bit_vector(len-1 downto 0);
+    s: out bit_vector(len-1 downto 0)
+    cin: in bit;
+    cout:out bit);
+end somanb;
+
+architecture nb of somanb is
+	
+    component somador is
+    	port(a,b,cin: in bit;
+    	s,cout: out bit);
+    end component;
+
+signal carry:bit_vector(len downto 0);
+
+	begin
+		laco: for j in 0 to len-1 generate
+			x:somador port map(a(j),b(j),carry(j),s(j),carry(j+	1));
+	end generate;
+
+carry(0) <= cin;
+cout <= carry(len);
+end nb;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-- Code your testbench here
+library IEEE;
+use IEEE.std_logic_1164.all;
+entity testbench is;
+end testbench;
+
+architecture test of testbench is
+	component somanb is
+    	generic(len:integer := 8);
+    	port(a,b: in bit_vector(len-1 downto 0);
+    	s: out bit_vector(len-1 downto 0)
+    	cin: in_bit;
+    	cout:out_bit);
+	end component;
+    
+signal a: bit_vector(7 downto 0);
+signal b: bit_vector(7 downto 0);
+signal s: bit_vector(7 downto 0);
+signal cin: bit:= '0';
+signal cout: bit;
+
+begin
+
+a<= "00000100",
+	"00100000" after 10 ns,
+	"00100100" after 20 ns,
+    "01100000" after 30 ns,
+    "00011000" after 40 ns,
+    "00000110" after 50 ns;
+    
+b<= "01010100",
+	"00101010" after 10 ns,
+	"00100110" after 20 ns,
+    "01100110" after 30 ns,
+    "00011001" after 40 ns,
+    "01000110" after 50 ns;
+        
+        
+        
+end test;
