@@ -22,8 +22,7 @@ architecture calculando_sqrt of psqrt_calculator is
             d_op, r_op, q_op: in std_logic_vector(n - 1 downto 0);
             op: in std_logic;
             index: in integer range 0 to 30;
-            resto_parcial_operado: out std_logic_vector(n - 1 downto 0)
-    
+            resto_parcial_operado: out std_logic_vector(n - 1 downto 0)  
         );
     end component operador_resto;
 

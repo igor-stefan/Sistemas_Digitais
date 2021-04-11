@@ -79,7 +79,6 @@ int main(){
     x = 1024;
     printf("Resultado = %d\n", square_root(x, y));
     printf("Resto = %d\n", y);
-    
     // srandom(time(0));
     // for(int k = 0; k <= 20; k++){
     //     x = random() % 400;

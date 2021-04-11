@@ -10,7 +10,6 @@ entity deslocador_2_bits_esq_r is
     );
 end entity deslocador_2_bits_esq_r;
 
-
 architecture deslocando_2_bits_r of deslocador_2_bits_esq_r is
     signal s: std_logic_vector(n - 1 downto 0) := (others => '0');
     begin

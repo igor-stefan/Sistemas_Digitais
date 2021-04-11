@@ -29,21 +29,23 @@ void decimal_to_binary(int x){
     printf("\"");
 }
 
-// int proxima_raiz_quadrada_perfeita(int N){ 
-// 	int nextN = floor(sqrt(N)) + 1; 
-// 	return nextN * nextN; 
-// } 
+int proxima_raiz_quadrada_perfeita(int N){ 
+	int nextN = floor(sqrt(N)) + 1; 
+	return nextN * nextN; 
+} 
 
 int main(){
     int x;
     int i = 0;
     srand(time(0));
     for(;i <= 14;){
-        x = rand() % 1024;
+        x = rand() % 2048;
         printf("%d => ", i++);
-        decimal_to_binary(x);
+        if(i % 2)
+            decimal_to_binary(x);
+        else
+            decimal_to_binary(proxima_raiz_quadrada_perfeita(x));
         printf(",\n");
-    }
-    
+    }    
     return 0;
 }

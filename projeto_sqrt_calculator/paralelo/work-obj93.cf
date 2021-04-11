@@ -1,22 +1,22 @@
 v 4
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_2_bits_esq_q.vhd" "18d6e09e28696c8ed136e1e4fb62d80fe90a11e3" "20201208194451.349":
-  entity deslocador_2_bits_esq_q at 1( 0) + 0 on 605;
-  architecture deslocando_2_bits_q of deslocador_2_bits_esq_q at 15( 330) + 0 on 606;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/testbenchparalelo.vhd" "5afb418b10887c965d43b89365d81865991f9328" "20201208194451.327":
-  entity testbench at 1( 0) + 0 on 603;
-  architecture test of testbench at 7( 87) + 0 on 604;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/operador_q.vhd" "375a68ee148ac10b10718164c5da7c5f8be4c1cc" "20201208194451.420":
-  entity operador_q at 1( 0) + 0 on 611;
-  architecture operando_q of operador_q at 14( 306) + 0 on 612;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_n_bits.vhd" "8cc63836c5aaa7edb42e12bafcb68f22e6bc702c" "20201208194451.374":
-  entity deslocador_n_bits at 1( 0) + 0 on 607;
-  architecture deslocando_n_bits of deslocador_n_bits at 14( 327) + 0 on 608;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/operador_resto.vhd" "89a1c9f60a176fa8b6d5b252c491c51c88c7507d" "20201208194451.310":
-  entity operador_resto at 1( 0) + 0 on 601;
-  architecture operando of operador_resto at 17( 371) + 0 on 602;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/paralelo_sqrt_non_restoring.vhd" "f15cca9b425946c870e6ed4a499af36b89e12045" "20201208194451.444":
-  entity psqrt_calculator at 1( 0) + 0 on 613;
-  architecture calculando_sqrt of psqrt_calculator at 17( 339) + 0 on 614;
-file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_2_bits_esq_r.vhd" "5c51bb02ee714429ba02ed5b0d08186943586e45" "20201208194451.396":
-  entity deslocador_2_bits_esq_r at 1( 0) + 0 on 609;
-  architecture deslocando_2_bits_r of deslocador_2_bits_esq_r at 14( 306) + 0 on 610;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_2_bits_esq_r.vhd" "b56b58dd05279146495645b2b25a757b486b6852" "20201217011101.789":
+  entity deslocador_2_bits_esq_r at 1( 0) + 0 on 691;
+  architecture deslocando_2_bits_r of deslocador_2_bits_esq_r at 13( 305) + 0 on 692;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/paralelo_sqrt_non_restoring.vhd" "e9e8d09e2dfc5855d77f6f6aa182c1c602a17e67" "20201217011101.876":
+  entity psqrt_calculator at 1( 0) + 0 on 695;
+  architecture calculando_sqrt of psqrt_calculator at 17( 339) + 0 on 696;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/operador_resto.vhd" "89a1c9f60a176fa8b6d5b252c491c51c88c7507d" "20201217011101.642":
+  entity operador_resto at 1( 0) + 0 on 683;
+  architecture operando of operador_resto at 17( 371) + 0 on 684;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_n_bits.vhd" "8cc63836c5aaa7edb42e12bafcb68f22e6bc702c" "20201217011101.754":
+  entity deslocador_n_bits at 1( 0) + 0 on 689;
+  architecture deslocando_n_bits of deslocador_n_bits at 14( 327) + 0 on 690;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/operador_q.vhd" "375a68ee148ac10b10718164c5da7c5f8be4c1cc" "20201217011101.836":
+  entity operador_q at 1( 0) + 0 on 693;
+  architecture operando_q of operador_q at 14( 306) + 0 on 694;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/testbenchparalelo.vhd" "ac30e1506c2175143fbc4e724c6eef9346406d1a" "20201217011101.678":
+  entity testbench at 1( 0) + 0 on 685;
+  architecture test of testbench at 7( 87) + 0 on 686;
+file / "/home/projeto/Desktop/vhdl_try/projeto_sqrt_calculator/paralelo/deslocador_2_bits_esq_q.vhd" "18d6e09e28696c8ed136e1e4fb62d80fe90a11e3" "20201217011101.720":
+  entity deslocador_2_bits_esq_q at 1( 0) + 0 on 687;
+  architecture deslocando_2_bits_q of deslocador_2_bits_esq_q at 15( 330) + 0 on 688;

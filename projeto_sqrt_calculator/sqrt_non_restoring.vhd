@@ -52,7 +52,7 @@ architecture procedimento of sqrt_calculator is
                                 num_deslocado := (others => '0');
                                 num_deslocado(n / 2 - 1 downto 0) := deslocar_duas_casas_esq(square_root);
                                 num_deslocado := num_deslocado or q01;  
-                                resto := std_logic_vector(to_signed(to_integer(signed(resto_deslocado)) - to_integer(signed(num_deslocado)), resto'length));
+                                resto := std_logic_vector(signed(resto_deslocado) - signed(num_deslocado));
                             else
                                 resto_deslocado := deslocar_duas_casas_esq(resto);
                                 num_deslocado := deslocar_numero(a, 2 * i, n) and q11;
@@ -60,7 +60,7 @@ architecture procedimento of sqrt_calculator is
                                 num_deslocado := (others => '0');
                                 num_deslocado(n / 2 - 1 downto 0) := deslocar_duas_casas_esq(square_root);
                                 num_deslocado := num_deslocado or q11;  
-                                resto := std_logic_vector(to_signed(to_integer(signed(resto_deslocado)) + to_integer(signed(num_deslocado)), resto'length));
+                                resto := std_logic_vector(signed(resto_deslocado) + signed(num_deslocado));
                             end if;
                             if(to_integer(signed(resto)) >= 0) then
                                 square_root(n / 2 - 1 downto 1) := square_root(n / 2 - 2 downto 0);
@@ -76,7 +76,7 @@ architecture procedimento of sqrt_calculator is
                             num_deslocado := (others => '0');
                             num_deslocado(n / 2 - 1 downto 1) := square_root(n / 2 - 2 downto 0);
                             num_deslocado(0) := '1';
-                            resto := std_logic_vector(to_signed(to_integer(signed(resto)) + to_integer(signed(num_deslocado)), resto'length));
+                            resto := std_logic_vector(signed(resto) + signed(num_deslocado));
                         end if;
                         r <= resto;
                         s <= square_root;
